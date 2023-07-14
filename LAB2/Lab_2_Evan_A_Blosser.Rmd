@@ -1,0 +1,71 @@
+---
+title: "Lab 2"
+author: "Evan Blosser"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Task 1
+```{r}
+getwd()
+```
+
+
+# Task 2
+```{r}
+EPAGAS <- read.csv(file = "EPAGAS.csv")
+head(EPAGAS)
+```
+
+
+# Task 3
+```{r}
+mpg <- EPAGAS$MPG
+mpg
+z <- (mpg-mean(mpg))/sd(mpg)
+```
+
+As shown below the mean of **z** was calculated to be approximately 0 (1.058709e-16); while the square root of the standard deviation of **z** was calculated to be 1:
+```{r}
+mean(z)
+sd(z)^2
+```
+```{r}
+# Find the z values greater than 3 in size
+z[abs(z)>3]
+
+# Find the I values corresponding to these z values
+mpg[abs(z)>3]
+
+# Find the values of z that are possible outliers
+z[abs(z)>=2 & abs(z)<=3]
+
+#Find the values of I which are possible outliers
+mpg[abs(z)>=2 & abs(z)<=3]
+ 
+ 
+
+# Plot the outliers in red and the possible outliers in blue
+mycol = ifelse(abs(z)>3, "Red",
+        ifelse(abs(z)>=2 &abs(z)<=3,"Blue", "Black"))  
+
+#Plot points with different plotting shapes        
+mypch = ifelse(abs(z)>3, 20,
+        ifelse(abs(z)>=2 &abs(z)<=3,21, 22))
+library(lattice)
+dotplot(mpg,col=mycol)
+```
+
+
+# Task 4
+
+
+
