@@ -1,0 +1,45 @@
+---
+title: "Lab_5_Evan_A_BLosser"
+author: "Evan_Blosser"
+date: "2023-07-14"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Task 1
+```{r}
+getwd()
+```
+
+# Task 2
+```{r}
+
+```
+
+z_score <- function(x) {
+z <- (x-mean(x))/sd(x)
+z
+}
+
+
+
+
+# Task 3
+
+
+# Task 4
+
+
+# Task 5
+
+
+# Task 6
+
+
+# Task 7
