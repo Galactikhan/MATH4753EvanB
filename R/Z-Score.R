@@ -1,5 +1,4 @@
-weight <- ddt$WEIGHT
-weight
-
-z <- (weight-mean(weight))/sd(weight)
+z_score <- function(x) {
+z <- (x-mean(x))/sd(x)
 z
+}
