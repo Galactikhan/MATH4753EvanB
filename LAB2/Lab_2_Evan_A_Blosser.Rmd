@@ -64,8 +64,20 @@ library(lattice)
 dotplot(mpg,col=mycol)
 ```
 
-
 # Task 4
+```{r}
+boxplot(mpg,main="Miles Per Gallon: Task 4 Outlier identification",ylab="mpg",col="Blue",notch=TRUE)
+```
 
+
+Chebyshev's theorem states that generally: 
+$$
+ \big( 1- \frac{1}{k^2} \big) , (\bar{y} \pm ks),  (\sigma \pm ks) 
+$$
+
+
+```{r}
+
+```
 
 
