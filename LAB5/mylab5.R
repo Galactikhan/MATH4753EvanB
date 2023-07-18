@@ -45,57 +45,89 @@ sample(B,size=20,prob=c(1/5,1/5,1/5,1/5,1/5),replace=TRUE)
 #   -p    = probability
 # set default values/replaced with scan()?
 #
+# Function name and inputs
 mybin=function(iter=100,n=10, p=0.5){
-
-
-  # make a matrix to hold the samples
-  #initially filled with NA's
+###
+  # Set Matrix "sam.mat" to be an empty matrix
+  #   with the dimensions as the inputs where
+  #   -Number of columns are iterations
+  #   -Number of rows is 'n' sample size
   sam.mat=matrix(NA,nr=n,nc=iter, byrow=TRUE)
-  #Make a vector to hold the number of successes in each trial
+  #
+  # Create and empty success vector
   succ=c()
+  #
+  # Iteration loop of function that samples 1 & 0 as
+  #  success or failure, and logs them into the empty
+  #  succ vector.
   for( i in 1:iter){
-    #Fill each column with a new sample
+    # The matrix is filled by a sample of the vector c(1, 0) as success/failure
+    # with a probability of p & 1-p.
     sam.mat[,i]=sample(c(1,0),n,replace=TRUE, prob=c(p,1-p))
-    #Calculate a statistic from the sample (this case it is the sum)
+    # As we define the 1 as a success, summing the matrix
+    # will give the quantity of success as the 0's will not
+    # change the summation.
     succ[i]=sum(sam.mat[,i])
   }
-  #Make a table of successes
+  # Create a table out of the "success" or succ vector
   succ.tab=table(factor(succ,levels=0:n))
-  #Make a barplot of the proportions
+  # Create a barplot to show the "success" vector divided by iterations
   barplot(succ.tab/(iter), col=rainbow(n+1), main="Binomial simulation", xlab="Number of successes")
+  # Prints the data used for the bar plot success/iterations
   succ.tab/iter
 }
+# Call mybin()
+#   input variations as desired
+#
 mybin(iter=1000,n=18, p=0.3)
+################################################################################
 
-## Try a multinomial
 
+#######################
+## mymult() function ##
+################################################################################
+# This is a multinomial sampling function
+#
+# - Note: the probability is 1/4 for each outcome
+#          as the program chooses 1:k where k = length(p)
+#
+# Function name and inputs
 mymult=function(iter=100,n=10, p=c(1,1,1,1)/4){
-  # make a matrix to hold the samples
-  #initially filled with NA's
+###
+  # Set Matrix "sam.mat" to be an empty matrix
+  #   with the dimensions as the inputs where
+  #   -Number of columns are iterations
+  #   -Number of rows is 'n' sample size
   sam.mat=matrix(NA,nr=n,nc=iter, byrow=TRUE)
-  #The number of categories is k
+  # K, or the number of categories, is defined by the
+  #   probability "p" within the user input
   k=length(p)
-  # Make a matrix that will hold the frequencies in each sample
+  #  Create "tab.mat" as an empty matrix to hold the frequencies in each sample
   tab.mat=matrix(NA,nr=k,nc=iter, byrow=TRUE)
-
-
+  #
+  # Iteration loop for sampling 1:k categories
+  #   with "probability" prob = p
   for(i in 1:iter){
-    #Fill each column with a new sample
+    # sampling and setting to "sam.mat"
     sam.mat[,i]=sample(1:k,n,replace=TRUE, prob=p)
-    #Collect all the frequencies of each of the k values
+    # Create a table and set the matrix "tab.mat" to be filled by this table
     tab.mat[,i]=table(factor(sam.mat[,i],levels=1:k))
   }
-  # sum the frequecies
+  # Summation of the frequency matrix
   freq=apply(tab.mat,1,sum)
-  # put names to them
+  # Create Names for the categories 1:k
   names(freq)=1:k
-  #create a barplot of refative freq
+  # Create a barplot to represent the frequency of 1:k samples being chosen
   barplot(freq/(n*iter),col=rainbow(k) )
+  # print the frequency table
   tab.mat
 }
+# Call mymult()
+#   input variations as desired
+#
 mymult(iter=1000,n=10,p=c(1,2,3,4,2)/12)
-
-
+################################################################################
+# Side note:
 ## R uses a number of built in distributions
 ## These all begin with r for random sampling
 ## Use ?distribution to see a more complete list
@@ -103,7 +135,15 @@ mymult(iter=1000,n=10,p=c(1,2,3,4,2)/12)
 ?rmultinom
 ?rpois
 ?rhyper
-
+################################################################################
+#
+#
+#########################
+## mysample() function ##
+################################################################################
+# this is a sampling function the
+#
+#
 mysample=function(n, iter=10,time=0.5){
   for( i in 1:iter){
     #make a sample
@@ -123,12 +163,13 @@ mysample=function(n, iter=10,time=0.5){
 
 mysample(n=1000, iter=30)
 
+################################################################################
 # Some examples of calculation
 #4.25
 dbinom(2,5,0.25)
 dbinom(0:1,5,0.25)
 pbinom(1,5,0.25)
-
+#
 #4.35
 1-pbinom(8,15,1/5)
 pbinom(2999,10000,1/5)
