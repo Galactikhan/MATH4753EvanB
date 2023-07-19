@@ -274,15 +274,18 @@ neg.binom.sim=function(mu =5, r=100){
     # Probability density
     prob.neg.bi <- choose(y-1,r-1)*p^r*(1-p)^(y-r)
     # Sampling 1's and 0's
-    sample.neg<-sample(c(1,0),prob=c(prob.neg.bi,prob.neg.bi),replace=TRUE)
+    sample.neg<-sample(c(1,0),replace=TRUE)
     if (sample.neg == 0){
       x = x + 1
-      succ = succ + 1 
+      succ = succ + 1
     }
     
   }
 
 }
+
+###
+# if we have a relitive frequency we can use dnbinom to check
 
 ```
 
