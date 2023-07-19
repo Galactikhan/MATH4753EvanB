@@ -1,0 +1,85 @@
+---
+title: 'ASsignment2'
+author: "Evan Blosser"
+date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
+output: 
+  html_document:
+    df_print: paged
+    fig_caption: true
+    highlights: pygments
+    number_sections: no
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE, fig.align='center'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Questions{0/17}
+
+## Q 1{.tabset}
+
+### a
+Given that an expert examining a pair of matched prints has a success rate of $92.12\%$, then that would mean that an expert will have a probability of $7.88\%$ failing to identify the match. 
+
+### b
+Given a novice with matched prints, the probability of identification failure is $25.45\%$.
+
+### c
+The participant is most likely a **novice**; that would fail to identify a match. 
+
+
+
+## Q 2{.tabset}
+```{r}
+plot(1:10)
+```
+
+
+## Q 3{.tabset}
+
+
+## Q 4{.tabset}
+
+
+## Q 5{.tabset}
+
+
+## Q 6{.tabset}
+
+
+## Q 7{.tabset}
+
+
+## Q 8{.tabset}
+
+
+## Q 9{.tabset}
+
+
+## Q 10{.tabset}
+
+
+## Q 11{.tabset}
+
+
+## Q 12{.tabset}
+
+
+## Q 13{.tabset}
+
+
+## Q 14{.tabset}
+
+
+## Q 15{.tabset}
+
+
+## Q 16{.tabset}
+
+
+## Q 17{.tabset}
+
+

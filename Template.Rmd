@@ -1,6 +1,6 @@
 ---
-title: 'Ass 2: Template'
-author: "Your name"
+title: 'Title'
+author: "Evan Blosser"
 date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
 output: 
   html_document:
@@ -17,20 +17,19 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Questions{}
+# Questions{0/17}
 
-## Q 1
+## Q 1{.tabset}
+
+### a
 
 
-## Q 2
+### b
+
+
+
+## Q 2{.tabset}
 ```{r}
 plot(1:10)
 ```
 
-
-## Q 3
-
-## Q 4
-
-
-## Q 5
