@@ -284,4 +284,33 @@ MATH4753EvanB::neg_bi_nom(10,3,0.4)
 
 # Task 7
 
+```{r}
+neg.binom.sim=function(r = 100, n=10, p=0.5){
+  ###
+  while(succ<r){
+    # The matrix is filled by a sample of the vector c(1, 0) as success/failure
+    # with a probability of p & 1-p.
+    prob_neg_bi <- choose(y-1,r-1)*p^r*(1-p)^(y-r)
+    #
+    sample_neg<-sample(c(1,0),prob=prob_neg_bi,replace=TRUE)
+    #
+    y = y + 1
+    #
+    succ=sum(sam.mat[,i])
+  }
+  # Create a table out of the "success" or succ vector
+  succ.tab=table(factor(succ,levels=0:n))
+  # Create a barplot to show the "success" vector divided by iterations
+  barplot(succ.tab/r, col=rainbow(n+1), main="Binomial simulation", xlab="Number of successes")
+  # Prints the data used for the bar plot success/iterations
+  succ.tab/iter
+}
+  
+  
+neg.binom.sim(100,10,0.5)
+```
+
+```{r}
+sample(c("H","T"),prob=c(1/2,1/2),replace=TRUE)
+```
 

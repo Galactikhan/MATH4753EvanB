@@ -141,26 +141,24 @@ mymult(iter=1000,n=10,p=c(1,2,3,4,2)/12)
 #########################
 ## mysample() function ##
 ################################################################################
-# this is a sampling function the
-#
+# this is a sampling function that chooses numbers 1 through 10
 #
 mysample=function(n, iter=10,time=0.5){
   for( i in 1:iter){
-    #make a sample
+    # Take a sample of numbers 1 through 10, with replacement
     s=sample(1:10,n,replace=TRUE)
-    # turn the sample into a factor
+    # Take the sample vector and make it a factor
     sf=factor(s,levels=1:10)
-    #make a barplot
+    # Create a bar plot for each iteration
     barplot(table(sf)/n,beside=TRUE,col=rainbow(10),
             main=paste("Example sample()", " iteration ", i, " n= ", n,sep="") ,
             ylim=c(0,0.2)
     )
-
-    #release the table
+    # Release the table at time
     Sys.sleep(time)
   }
 }
-
+# Call function example
 mysample(n=1000, iter=30)
 
 ################################################################################

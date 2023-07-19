@@ -9,8 +9,8 @@
 #'
 #' @examples
 #' #P(Y=10), Y~NegBin(p=0.4,r=3)
-#' neg_bi_nom(10,3,0.4)
-neg_bi_nom=function(y,r,p){
+#' neg.bi.nom(10,3,0.4)
+neg.bi.nom=function(y,r,p){
 
 
   choose(y-1,r-1)*p^r*(1-p)^(y-r)
