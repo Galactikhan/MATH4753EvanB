@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Questions{0/17}
+# Questions{2/17}
 
 ## Q 1{.tabset}
 
@@ -33,21 +33,77 @@ The participant is most likely a **novice**; that would fail to identify a match
 
 
 ## Q 2{.tabset}
-```{r}
-plot(1:10)
-```
+Given a population size of $1,000$ it is defined that $100$ of them are testesterone users, **users**, while the remainder $(900)$ are **non-users**. Within this population, $50$ **users** would test poistive while $9$ **non-users** would test negitive. 
+
+
+### a
+The probability that a **user** would test positive is:
+$$
+\begin{align*}
+P(Positive|User) = 50/100 = 0.50
+\end{align*}
+$$
+
+### b
+The probability that a **non-user** would test positive is:
+$$
+\begin{align*}
+P(Negative|Non-User) = (891)/900 =  0.99
+\end{align*}
+$$
+
+### c
+Given $P(User) = 0.10$, Baye's Rule states:
+$$
+\begin{align*}
+P(User| Positive) = \frac{P(Positive|User)\cdot P(User)}{P(Positive|User)\cdot P(User)+ P(Positive|Non-User)\cdot P(Non-User)}
+\end{align*}
+$$
+where:
+$$
+\begin{align*}
+P(Positive|Non-User) = 9/900 = 0.01
+\end{align*}
+$$
+it can then be Obtained that:
+$$
+\begin{align*}
+P(User| Positive)= \frac{(0.1)\cdot(0.5)}{(0.1)\cdot(0.5)+(0.9)\cdot(0.01)} = 0.8474576
+\end{align*}
+$$
+or The probability that a Player that tests **positive** is infact a **user** is $\approx 84.75\%$.
 
 
 ## Q 3{.tabset}
 
+### Theorem 3.1
+
+### Proof
+
+
 
 ## Q 4{.tabset}
+
+### Theorem 3.2
+
+### Proof
+
+
 
 
 ## Q 5{.tabset}
 
+### Theorem 3.3
+
+### Proof
+
 
 ## Q 6{.tabset}
+
+### Theorem 3.4
+
+### Proof
+
 
 
 ## Q 7{.tabset}
@@ -82,4 +138,6 @@ plot(1:10)
 
 ## Q 17{.tabset}
 
-
+```{r}
+plot(1:10)
+```
