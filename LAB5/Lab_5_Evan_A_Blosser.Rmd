@@ -128,15 +128,15 @@ There are 20 marbles, population, with $12$ being white and denoted as "1" in th
 
 Thus, we have a sample size of 5 **WITHOUT** replacement:
 ```{r}
-Marble_bag  <- c(1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0)
-Marble_prob <- c(3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5)
-sample(Marble_bag,size=5,prob=Marble_prob, replace=FALSE)
+Marble.bag  <- c(1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0)
+Marble.prob <- c(3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5)
+sample(Marble.bag,size=5,prob=Marble.prob, replace=FALSE)
 ```
 **with**
 ```{r}
-Marble_bag  <- c(1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0)
-Marble_prob <- c(3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5)
-sample(Marble_bag,size=5,prob=Marble_prob, replace=TRUE)
+Marble.bag  <- c(1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0)
+Marble.prob <- c(3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,3/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5,2/5)
+sample(Marble.bag,size=5,prob=Marble.prob, replace=TRUE)
 ```
 
 ## myhyper()
@@ -203,37 +203,12 @@ myhyper(iter=10000,n=10,N=20,r=12)
 
 
 # Task 4
-```{r}
-#########################
-## mysample() function ##
-################################################################################
-# this is a sampling function the
-#
-#
-mysample=function(n, iter=10,time=0.5){
-  for( i in 1:iter){
-    #make a sample
-    s=sample(1:10,n,replace=TRUE)
-    # turn the sample into a factor
-    sf=factor(s,levels=1:10)
-    #make a barplot
-    barplot(table(sf)/n,beside=TRUE,col=rainbow(10),
-            main=paste("Example sample()", " iteration ", i, " n= ", n,sep="") ,
-            ylim=c(0,0.2)
-    )
+![Running **mysample()** out of R markdown](SharedScreenshot.jpg)
 
-    #release the table
-    Sys.sleep(time)
-  }
-}
-```
 
-```{r}
-mysample(n=1000, iter=30, time = 1)
-```
 
 ## What this function does:
- This function **mysample()** takes a sample of numbers 1 through 10, with replacement, and creates a new set of probability graphs for each of the 30 iterations.
+ This function **mysample()** takes a sample of numbers 1 through 10, with replacement, and creates a new set of probability graphs for each of the 30 iterations.It also slows down the knitting process significantly which is why a screenshot was included of it running in a .R script. 
 
  All the graphs are slightly different yet their probabilities for numbers 1 through 10 all center around $0.10$
   or it can be seen that all numbers have an almost equal chance of being selected by **mysample()**. 
@@ -278,39 +253,46 @@ pbinom(8,15,0.4)
 
 # Task 6
 ```{r}
-MATH4753EvanB::neg_bi_nom(10,3,0.4)
+MATH4753EvanB::neg.bi.nom(10,3,0.4)
 ```
 
 
 # Task 7
 
-```{r}
-neg.binom.sim=function(r = 100, n=10, p=0.5){
-  ###
-  while(succ<r){
-    # The matrix is filled by a sample of the vector c(1, 0) as success/failure
-    # with a probability of p & 1-p.
-    prob_neg_bi <- choose(y-1,r-1)*p^r*(1-p)^(y-r)
-    #
-    sample_neg<-sample(c(1,0),prob=prob_neg_bi,replace=TRUE)
-    #
-    y = y + 1
-    #
-    succ=sum(sam.mat[,i])
-  }
-  # Create a table out of the "success" or succ vector
-  succ.tab=table(factor(succ,levels=0:n))
-  # Create a barplot to show the "success" vector divided by iterations
-  barplot(succ.tab/r, col=rainbow(n+1), main="Binomial simulation", xlab="Number of successes")
-  # Prints the data used for the bar plot success/iterations
-  succ.tab/iter
-}
-  
-  
-neg.binom.sim(100,10,0.5)
-```
+My best attempt at **task 7**
 
 ```{r}
-sample(c("H","T"),prob=c(1/2,1/2),replace=TRUE)
+neg.binom.sim=function(mu =5, r=100){
+  ###
+  p = r/mu
+  succ = 0
+  while(succ<r){
+    # Relations
+    y= x + r
+    q = 1-p
+    sigma = sqrt((r*q)/p^2)
+    # Probability density
+    prob.neg.bi <- choose(y-1,r-1)*p^r*(1-p)^(y-r)
+    # Sampling 1's and 0's
+    sample.neg<-sample(c(1,0),prob=c(prob.neg.bi,prob.neg.bi),replace=TRUE)
+    if (sample.neg == 0){
+      x = x + 1
+      succ = succ + 1 
+    }
+    
+  }
+
+}
+
 ```
+
+
+```{r}
+x <- 0:15
+size <- (1:20)/4
+persp(x, size, dnb <- outer(x, size, function(x,s) dnbinom(x, s, prob = 0.4)),
+      xlab = "x", ylab = "s", zlab = "density", theta = 150)
+title(tit <- "negative binomial density(x,s, pr = 0.4)  vs.  x & s")
+```
+
 
