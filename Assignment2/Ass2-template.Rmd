@@ -217,6 +217,17 @@ $$
 
 ## Q 7{.tabset}
 
+### a
+The probabilities for *y* in the table does sum to equal 1
+```{r}
+0.09+0.30+0.37+0.20+.04
+```
+
+
+### b
+
+
+### c
 
 ## Q 8{.tabset}
 
