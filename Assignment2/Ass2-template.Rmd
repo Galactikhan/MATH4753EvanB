@@ -225,14 +225,84 @@ The probabilities for *y* in the table does sum to equal 1
 
 
 ### b
+The probability of 3 or 4 homes, $P(3\cup4)P(y=3)+P(y=4)$, is $0.24$. 
+```{r}
+.2+0.04
+```
+
+
+### c
+The probability of fewer thena 2 homes, $P(y<2) = P(y=0)+P(y=1)$, is $0.39$
+```{r}
+0.3+.09
+```
+
+
+
+## Q 8{.tabset}
+
+### a
+Checking that this is a discrete random variable distribution, or the summation of the probabilities is 1, we fins that it does satisfy the properties:
+```{r}
+.17+.1+.11+.11+.1+.1+.07+.05+.03+.02+.02+.02+.02+.02+.01+.01+.01+.01+.01+.005+.005
+```
+
+
+### b
+For the probability $P(Y\geq10)$ it can be seen that the probability is $0.14$:
+```{r}
+Q8.B.prob<- c(.17, .1,.11,.11,.1,.1,.07,.05,.03,.02,.02,.02,.02,.02,.01,.01,.01,.01,.01,.005,.005)
+Q8.B.num <- c(0:20)
+Q8.B.tab <- data.frame(Q8.B.num,Q8.B.prob)
+Q8.B.tab
+```
+
+
+```{r}
+Q8.B.tab.answer <- Q8.B.tab[11:21,]
+sum(Q8.B.tab.answer)
+```
+
+
+### c
+The mean is, $\mu = E(Y)=\sum y\cdot p(y) = 4.655$:
+```{r}
+0*.17+1*.1+2*.11+3*.11+4*.1+5*.1+6*.07+7*.05+8*.03+9*.02+10*.02+11*.02+12*.02+13*.02+14*.01+15*.01+16*.01+17*.01+18*.01+19*.005+20*.005
+```
+The variance is, $\sigma^2 = V(Y)=\sum y^2\cdot p(y) - \mu^2 = 19.85597$
+```{r}
+0^2*.17+1^2*.1+2^2*.11+3^2*.11+4^2*.1+5^2*.1+6^2*.07+7^2*.05+8^2*.03+9^2*.02+10^2*.02+11^2*.02+12^2*.02+13^2*.02+14^2*.01+15^2*.01+16^2*.01+17^2*.01+18^2*.01+19^2*.005+20^2*.005 - 4.655^2
+```
+
+
+### d
+The interval from Chebyshev's Rule can be used for $\frac{3}{4}$ or $0.75$ probability; which states $(\mu \pm 2\sigma)$. Thus the interval is:
+$$
+(-4.257008,13.56701)
+$$
+
+
+
+```{r}
+4.655 - 2*sqrt(19.85597)
+4.655 + 2*sqrt(19.85597)
+```
+
+
+
+## Q 9{.tabset}
+
+### a
+
+
+### b
 
 
 ### c
 
-## Q 8{.tabset}
 
+### d
 
-## Q 9{.tabset}
 
 
 ## Q 10{.tabset}
@@ -258,6 +328,4 @@ The probabilities for *y* in the table does sum to equal 1
 
 ## Q 17{.tabset}
 
-```{r}
-plot(1:10)
-```
+
