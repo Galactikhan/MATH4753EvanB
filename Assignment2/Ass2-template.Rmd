@@ -77,17 +77,73 @@ or The probability that a Player that tests **positive** is infact a **user** is
 ## Q 3{.tabset}
 
 ### Theorem 3.1
+"The Multiplicative Rule 
+You have *k* sets of elements; $n_1$ for the first set, $n_2$ for the second set..., and $n_k$ for the $k^{th}$ set. Suppose you want to form a sample of *k* elements by taking one element from each of the *k* sets. The number of different samples that can be formed is the product":
+$$
+\begin{align*}
+n_1n_2n_3&...n_k\\
+o&r\\ 
+\prod_{i = 1}^{k}& n_{i}
+\end{align*}
+$$
 
 ### Proof
-
-
+The book builds a proof for $n_1n_2$ using pairings of $a_{n1}b_{n2}$ and a $2D$ Table to represent the possibilities. In order to prove this for *k* sets the proof must be elaborated upon:
+$$
+\begin{align*}
+\begin{bmatrix}
+    & b_1 & b_2 & ...   & b_{n2}\\
+a_1 & a_1b_1 & a_1b_2& ... & a_1b_{n2}  \\
+a_2 & a_2b_1 & a_2b_2&...  &...   \\
+... & ...    & ...& ...&    ...    \\
+a_{n1}&a_{n1}b_1&...&...&a_{n1}b_{n2}
+\end{bmatrix} \cdot 
+\begin{bmatrix}
+    & d_1 & d_2 & ...   & d_{nk}\\
+c_1 & c_1d_1 & c_1d_2& ... & c_1d_{nk}  \\
+c_2 & c_2d_1 & c_2d_2&...  &...   \\
+... & ...    & ...& ...&    ...    \\
+c_{n3}&c_{n3}d_1&...&...&c_{n3}d_{nk}
+\end{bmatrix}  
+\end{align*}
+$$
+These tables ellaborate on the books proof of $(n_1n_2)n_3=n_1n_2n_3$ to state that:
+$$
+\begin{align*}
+(n_1n_2n_3)...n_k = n_1n_2n_3...n_k 
+\end{align*}
+$$
 
 ## Q 4{.tabset}
 
 ### Theorem 3.2
+"Permutations Rule Given a single set of **N** distinctly different elements, you wish to select *n* elements from the **N** and  arrange them within *n* positions in a distinct order. The number of different permutations of the **N** elements taken *n* at a time is denoted buy $P^N_n$ and is equal to": 
+$$
+\begin{align*}
+P^N_n  = N(N-1)(N-2)...(N-n+1) = \frac{N!}{(N-n)!}
+\end{align*}
+$$
 
 ### Proof
+Given, $P^N_n$, is *n* elements within **N**, and arranged in *n* positions. The total amount of distinct ways this will be able to happen first is **N** ways. Thus , we find the first position, of *n* positions, to be **N**, or:
+$$
+\begin{align*}
+P^N_n  = (N)...
+\end{align*}
+$$
 
+each subsequent position has 1 less then **N** amount of possible or distinct elements *n* to be chosen, thus if we want to fill the second position we have $N-1$ distinct elements that can be chosen. This follows for each one chosen as we work **withouth replacement**, thus the third position and subsequent positions to be filled will follows as $(N-2)(N-3)...$ such that:
+$$
+\begin{align*}
+P^N_n  = N(N-1)(N-2)...
+\end{align*}
+$$
+Here we must note that a $0$ trial is not desired and given the correct count, it can be determined that the last position can be filled by $(N-n+1)$ distinct ways, such that if $N=n$ then there is at minimum 1 distinct way:
+$$
+\begin{align*}
+P^N_n  = N(N-1)(N-2)...(N-n+1) = \frac{N!}{(N-n)!}
+\end{align*}
+$$
 
 
 
