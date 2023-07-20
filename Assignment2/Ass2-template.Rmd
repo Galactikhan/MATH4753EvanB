@@ -141,15 +141,35 @@ $$
 Here we must note that a $0$ trial is not desired and given the correct count, it can be determined that the last position can be filled by $(N-n+1)$ distinct ways, such that if $N=n$ then there is at minimum 1 distinct way:
 $$
 \begin{align*}
-P^N_n  = N(N-1)(N-2)...(N-n+1) = \frac{N!}{(N-n)!}
+P^N_n  = N(N-1)(N-2)...(N-n+1)
 \end{align*}
 $$
-
-
+Next we Use the **multiplicitivce rule** as follows, where $n! = n \times (n-1)!$:
+$$
+\begin{align*}
+P^N_n  =& N(N-1)(N-2)...(N-n+1) \cdot \frac{(N-n)!}{(N-n)!}\\
+       =& \frac{N(N-1)(N-2)...(N-n+1) \cdot(N-n)!}{(N-n)!}\\
+       =&  \frac{N!}{(N-n)!}
+\end{align*}
+$$
+Thus:
+$$
+\begin{align*}
+P^N_n  =  \frac{N!}{(N-n)!}
+\end{align*}
+$$
 
 ## Q 5{.tabset}
 
 ### Theorem 3.3
+Partitions Rule: There exsists a single set of **N** distinctly diffrent elements and you want to partition them into *k* sets, the first set contianing $n_1$ elements, the second containt $n_2$ elemetns ... and the $k^{th}$ set containing $n_k$ elements. The number of different partitions is:
+$$
+\begin{align*}
+\frac{N!}{n_1!n_2!...n_k!}\hspace{10mm} \textit{where:}\hspace{5mm} n_1+n_2+...+n_k = N 
+\end{align*}
+$$
+
+
 
 ### Proof
 
