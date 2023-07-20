@@ -165,18 +165,51 @@ $$
 Partitions Rule: There exsists a single set of **N** distinctly diffrent elements and you want to partition them into *k* sets, the first set contianing $n_1$ elements, the second containt $n_2$ elemetns ... and the $k^{th}$ set containing $n_k$ elements. The number of different partitions is:
 $$
 \begin{align*}
-\frac{N!}{n_1!n_2!...n_k!}\hspace{10mm} \textit{where:}\hspace{5mm} n_1+n_2+...+n_k = N 
+A = \frac{N!}{n_1!n_2!...n_k!}\hspace{10mm} \textit{where:}\hspace{5mm} n_1+n_2+...+n_k = N 
 \end{align*}
 $$
 
 
 
 ### Proof
-
+By the use of **Theorem 3.2** we can say that:
+$$
+\begin{align*}
+P^N_N = \frac{N!}{(N-N)!} = \frac{N!}{0} = N!
+\end{align*}
+$$
+Next by using **Theorem 3.1** 
+$$
+\begin{align*}
+P^N_N = N! = (A)(n_1!)(n_2!)...(n_k!)
+\end{align*}
+$$
+Thus:
+$$
+\begin{align*}
+\frac{N!}{(n_1!)(n_2!)...(n_k!)} = (A)
+\end{align*}
+$$
 
 ## Q 6{.tabset}
 
+
+
 ### Theorem 3.4
+The Combinations Rule: A sample of *n* elements is to be chosen from a set of **N** elements. Then the number opf different samples of *n* elements that can be selected from **N** is denoted by 
+$$
+\begin{pmatrix} 
+N\\
+n
+\end{pmatrix}
+$$
+and is equal to:
+$$
+\begin{pmatrix} 
+N\\
+n
+\end{pmatrix} = \frac{N!}{n!(N-n)!}
+$$
 
 ### Proof
 
