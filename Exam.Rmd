@@ -1,0 +1,37 @@
+---
+title: 'Exam'
+author: "Evan Blosser"
+date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
+output: 
+  html_document:
+    df_print: paged
+    fig_caption: true
+    highlights: pygments
+    number_sections: no
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+---
+```{r setup, include=FALSE, fig.align='center'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+  <- read.csv(".csv")
+
+class()
+summary()
+
+#  ddt %>% filter(LENGTH > 50 & SPECIES == "CCATFISH")
+
+
+```
+
+
+
+```{r}
+tab <- with(ddt,table(SPECIES,RIVER))
+addmargins(tab)
+```
+
