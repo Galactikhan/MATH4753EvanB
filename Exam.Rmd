@@ -28,10 +28,38 @@ summary()
 
 ```
 
+```{r}
+ddtnew <- ddt %>% mutate(Z = (DDT-mean(DDT))/sd(DDT))
+head(ddtnew)
+```
 
 
 ```{r}
 tab <- with(ddt,table(SPECIES,RIVER))
 addmargins(tab)
 ```
+
+
+
+```{r}
+mpg <- EPAGAS$MPG
+mpg
+z <- (mpg-mean(mpg))/sd(mpg)
+mean(z)
+sd(z)^2
+# Find the z values greater than 3 in size
+z[abs(z)>3]
+
+# Find the I values corresponding to these z values
+mpg[abs(z)>3]
+
+# Find the values of z that are possible outliers
+z[abs(z)>=2 & abs(z)<=3]
+
+#Find the values of I which are possible outliers
+mpg[abs(z)>=2 & abs(z)<=3]
+
+boxplot(mpg,main="Miles Per Gallon: Task 4 Outlier identification",ylab="mpg",col="Blue",notch=TRUE)
+```
+
 
