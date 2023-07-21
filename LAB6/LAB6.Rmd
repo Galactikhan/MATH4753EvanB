@@ -1,0 +1,57 @@
+---
+title: 'Lab6'
+author: "Evan Blosser"
+date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
+output: 
+  html_document:
+    df_print: paged
+    fig_caption: true
+    highlights: pygments
+    number_sections: no
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+---
+```{r setup, include=FALSE, fig.align='center'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Task 1
+```{r}
+getwd()
+```
+
+
+# Task 2
+```{r}
+# Sets Layout for 4 graphs 2 on top 2 on bottom
+layout(matrix(1:4, nr=2,nc=2))
+# Normal Curve Plots
+curve(dnorm(x, mean=10,sd=4),xlim=c(-6,25),ylab = "sd=4")
+curve(dnorm(x, mean=10,sd=2),xlim=c(2,17),ylab = "sd=2")
+curve(dnorm(x, mean=5,sd=10),xlim=c(-30,40),ylab = "sd=10")
+curve(dnorm(x, mean=5,sd=1/2),xlim=c(3,7),ylab = "sd=1/2")
+```
+
+```{r}
+
+
+```
+
+# Task 3
+
+
+# Task 4
+
+
+# Task 5 
+
+
+# Task 6 
+
+
+# Task 7
+
+
+
