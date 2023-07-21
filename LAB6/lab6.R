@@ -1,29 +1,76 @@
-layout(matrix(1:4, nr=2,nc=2))
-
-layout.show(4)
-
-curve(dnorm(x, mean=10,sd=4),xlim=c(-10,30))
-
-curve(dnorm(x, mean=10,sd=8),xlim=c(-10,30))
-
-curve(dnorm(x, mean=5,sd=4),xlim=c(-10,30))
-
-curve(dnorm(x, mean=10,sd=2),xlim=c(-10,30))
+# Task 2##########################################################
+#
 
 
-### Draw a normal curve
-curve(dnorm(x, mean=10,sd=4),xlim=c(-10,30))
 
-# Find the area between x=10 and 25
-
-# x values corresponding to the x - cords of points on the curve
+curve(dnorm(x, mean=0,sd=1),xlim=c(-3,7),ylab = "sd=1")
+#####################
+# In order to find the area between x=10 and 25
+#  - seq defines desired x points
 xcurve=seq(10,25,length=1000)
-
-# Y values corresponding t0 the x values
+# For The Y part of the curve  we use the X points
+#  and the data for the curve in a normal distribution
 ycurve=dnorm(xcurve,mean=10,sd=4)
-
-# Fill in the polygon with the given vertices
+# Creates a Polygon and fills it bounded by the given
+#   x & y curves
 polygon(c(10,xcurve,25),c(0,ycurve,0),col="Red")
+
+# Put in the text with the appropriate area
+
+# Area
+prob=pnorm(25,mean=10,sd=4)-pnorm(10,mean=10,sd=4)
+prob=round(prob,4)
+
+# Click to paste the text onto the graph
+text(locator(1), paste("Area = ", prob, sep=""))
+
+###############################################################
+
+
+
+
+
+
+
+####################
+# lab6.R Commented #
+##############################################################
+# Sets Layout for 4 graphs 2 on top 2 on bottom
+layout(matrix(1:4, nr=2,nc=2))
+# Shows the layout that was made, with numbers 1 through
+#  4 to designate each
+windows;layout.show(4)
+#####################
+# Plots a curve with X-limits -10 and 30, with a Normal distribution
+#  -w/ mean = 10, Standard Dev. = 4
+curve(dnorm(x, mean=10,sd=4),xlim=c(-10,30))
+#  -w/ mean = 10, Standard Dev. = 8
+curve(dnorm(x, mean=10,sd=8),xlim=c(-10,30))
+#  -w/ mean = 5, Standard Dev. = 4
+curve(dnorm(x, mean=5,sd=4),xlim=c(-10,30))
+#  -w/ mean = 10, Standard Dev. = 2
+curve(dnorm(x, mean=10,sd=2),xlim=c(-10,30))
+################
+#
+#####################
+# Plots a curve with X-limits -10 and 30, with a Normal distribution
+#  -w/ mean = 10, Standard Dev. = 4
+curve(dnorm(x, mean=10,sd=4),xlim=c(-10,30))
+#
+# In order to find the area between x=10 and 25
+#  - seq defines desired x points
+xcurve=seq(10,25,length=1000)
+# For The Y part of the curve  we use the X points
+#  and the data for the curve in a normal distribution
+ycurve=dnorm(xcurve,mean=10,sd=4)
+# Creates a Polygon and fills it bounded by the given
+#   x & y curves
+polygon(c(10,xcurve,25),c(0,ycurve,0),col="Red")
+
+
+
+
+
 
 # Put in the text with the appropriate area
 
