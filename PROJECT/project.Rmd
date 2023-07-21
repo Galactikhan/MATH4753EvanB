@@ -1,0 +1,25 @@
+---
+title: "Project_MATH4753_EvanB"
+author: "Evan_A_Blosser"
+date: "2023-07-20"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+layout()
+
+# type = b 
+#   -gives both lines and dots
+#
+# abline()
+#   -adds line to existing plot
+
+
+?floor
+?ceiling
+```
+
