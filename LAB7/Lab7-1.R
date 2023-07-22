@@ -1,3 +1,9 @@
+
+
+
+
+
+
 #This is a model R function that you can alter for other statistics
 # Copy this function twice and alter the two copies to make sampling distributions from the T distribution
 mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){    # adjust ymax to make graph fit
