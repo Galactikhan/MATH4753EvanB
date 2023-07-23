@@ -19,8 +19,36 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-# Task 1
-
+## Task 1{.tabset}
 ```{r}
 getwd()
 ```
+
+## Task 2{.tabset}
+
+### mycchisim
+```{r}
+
+```
+
+
+
+
+
+
+## Task 3{.tabset}
+
+
+## Task 4{.tabset}
+
+
+## Task 5{.tabset}
+
+
+## Task 6{.tabset}
+
+
+## Task 7{.tabset}
+
+
+
