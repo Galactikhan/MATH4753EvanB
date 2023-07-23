@@ -1,5 +1,5 @@
 ---
-title: 'Project'
+title: 'Lab7'
 author: "Evan Blosser"
 date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
 output: 
@@ -19,23 +19,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-
-
-
-
-
+# Task 1
 
 ```{r}
-layout()
-
-# type = b 
-#   -gives both lines and dots
-#
-# abline()
-#   -adds line to existing plot
-
-
-?floor
-?ceiling
+getwd()
 ```
-
