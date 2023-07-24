@@ -107,9 +107,9 @@ mychisim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,yma
   return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq"))
 }
 # Function examples:  ##########################################################
-windows()             #
-mychisim2(iter=10000) #
-#######################
+windows()                   #
+csq1= mychisim2(iter=10000) #
+#############################
 
 ################
 ## myTsim2()  ##

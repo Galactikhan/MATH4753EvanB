@@ -18,6 +18,16 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
+class note:
+
+  Incorporate a DATA folder made indirectly
+```{r}
+
+# create data folder and compres data
+# usethis::use_data()
+```
+
+
 
 ## Task 1{.tabset}
 ```{r}

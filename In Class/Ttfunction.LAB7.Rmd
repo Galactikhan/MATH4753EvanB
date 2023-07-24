@@ -1,0 +1,30 @@
+---
+title: "class.7.24"
+author: "Evan_A_Blosser"
+date: "2023-07-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+```{r}
+set.seed(32)
+y1 <- rnorm(3,15,8)
+y2 <- rnorm(40,10,8)
+
+# Sets: mu1 - mu2 = 0 
+t.test(y1,y2,mu = 0,var.equal=TRUE)
+# Or specific quantity with '$'
+t.test(y1,y2,mu = 0,var.equal=TRUE)$conf.int
+
+# F test: see that var.equal=TRUE is a correct assumption
+#  - packages the confidence interval
+var.test(y1,y2)
+
+```
+
