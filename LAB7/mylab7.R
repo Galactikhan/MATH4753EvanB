@@ -85,7 +85,7 @@ mychisim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,yma
   # Define dimension of data matrix by user input
   data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE)
   data2.mat=matrix(y2,nrow=n2,ncol=iter,byrow=TRUE)
-  # Define ssq1
+  # Define 'S' Squared
   ssq1=apply(data1.mat,2,var)
   ssq2=apply(data2.mat,2,var)
   # pooled s squared 'ssq1' & 'ssq2'
@@ -137,17 +137,28 @@ mychisim2(iter=10000) #
 #       - ymax   ; User defined to fit the y-axis of the output
 #
 myTsim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=0.5,...){
-  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
+  # Generate the 1st set of "iter" amount of samples using rnorm
+  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)
+  # Generate the 2nd set of "iter" amount of samples using rnorm
   y2=rnorm(n2*iter,mean=mean2,sd=sigma2)
-  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1
+  # Define dimension of data matrix by user input
+  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE)
   data2.mat=matrix(y2,nrow=n2,ncol=iter,byrow=TRUE)
-  ssq1=apply(data1.mat,2,var) # ssq1 is s squared
+  # Define 'S' Squared & ybar as mean
+  ssq1=apply(data1.mat,2,var)
   ybar1= apply(data1.mat,2,mean)
   ssq2=apply(data2.mat,2,var)
   ybar2=apply(data2.mat,2,mean)
-  spsq=((n1-1)*ssq1 + (n2-1)*ssq2)/(n1+n2-2) # pooled s squared
-  w=((ybar1-ybar2)-(mean1-mean2))/sqrt(spsq*(1/n1+1/n2))#sigma1=sigma2,  Chi square stat
-  hist(w,freq=FALSE, ylim=c(0,ymax), # Histogram with annotation
+  # pooled s squared 'ssq1' & 'ssq2'
+  spsq=((n1-1)*ssq1 + (n2-1)*ssq2)/(n1+n2-2)
+  # chi-sqaure Statistic
+  #  denoted as 'w'
+  #  -sigma1=sigma2
+  #  - ybar differenced with mean
+  w=((ybar1-ybar2)-(mean1-mean2))/sqrt(spsq*(1/n1+1/n2))
+  # Histogram
+  #   - User Input Adaptive labels
+  hist(w,freq=FALSE, ylim=c(0,ymax),
        main=substitute(paste("Sample size = ",n[1]+n[2]," = ",n1+n2," statistic = ",T)),
        xlab=paste(" T Statistic",sep=""), las=1)
   lines(density(w),col="Blue",lwd=3) # add a density plot
