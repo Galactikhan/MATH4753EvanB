@@ -28,7 +28,34 @@ getwd()
 
 ### mycchisim
 ```{r}
-
+mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){
+  # Generate the "iter" amount of samples using rnorm
+  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)
+  # Define dimension of data matrix by user input
+  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE)
+  # Define ssq1
+  ssq1=apply(data1.mat,2,var)
+  # chi-sqaure Statistic
+  #  denoted as 'w'
+  w=(n1-1)*ssq1/sigma1^2
+  # Histogram
+  #   - User Input Adaptive labels
+  hist(w,freq=FALSE, ylim=c(0,ymax),
+       main=substitute(paste("Sample size = ",n[1]," = ",n1," statistic = ",chi^2)),
+       xlab=expression(paste(chi^2, "Statistic",sep=" ")), las=1)
+  # Creates density plot lines on-top of histogram
+  lines(density(w),col="Blue",lwd=3)
+   # Creates theoretical curve on-top of histogram
+  curve(dchisq(x,n1-1),add=TRUE,col="Red",lty=2,lwd=3)
+  # Adaptive Title:
+  # mathematical annotation -see ?plotmath
+  title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2))
+  # Legend placed using locater/coordinates if in .rmd
+  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
+  ### Function Return ###
+  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq"))
+}
+chisq=mychisim(iter=10000,ymax=0.15)
 ```
 
 

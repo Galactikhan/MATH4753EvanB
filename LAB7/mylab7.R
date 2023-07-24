@@ -230,3 +230,10 @@ myFsim2<-function(n1=10,n2=14,sigma1=3,sigma2=2,mean1=5,mean2=10,iter=1000,ymax=
 # Function examples:  ##########################################################
 myFsim2(iter=10000)   #
 #######################
+
+
+
+
+
+
+
