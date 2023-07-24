@@ -61,16 +61,42 @@ mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){
   # mathematical annotation -see ?plotmath
   title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2))
   # Legend placed using locater/coordinates if in .rmd
-  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
+  legend(x =2 ,y =0,c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
   ### Function Return ###
   return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq"))
 }
-chisq=mychisim(iter=10000,ymax=0.15)
+
 ```
 
 
+### Plot: 1/4
+```{r}
+mychisim(n1 = 10, iter=1000,mean1 = 10,sigma1 = 4,ymax=0.2)
+```
 
 
+### Plot: 2/4
+```{r}
+mychisim(n1 = 20, iter=1000,mean1 = 10,sigma1 = 4,ymax=0.15)
+```
+
+### Plot: 3/4
+```{r}
+mychisim(n1 = 100, iter=1000,mean1 = 10,sigma1 = 4,ymax=0.15)
+```
+
+### Plot: 4/4
+```{r}
+mychisim(n1 = 200, iter=1000,mean1 = 10,sigma1 = 4,ymax=0.15)
+```
+
+### Histogram: shisq "w"
+```{r}
+chisq=mychisim(n1 = 10, iter=1500,mean1 = 20,sigma1 = 10,ymax=0.15)
+
+
+hist(chisq,)
+```
 
 
 ## Task 3{.tabset}
