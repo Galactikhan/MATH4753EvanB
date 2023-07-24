@@ -1,13 +1,14 @@
 
-#This is a model R function that you can alter for other statistics
-# Copy this function twice and alter the two copies to make sampling distributions from the T distribution
+
 
 ################
 ## mychisim() ##
-######################################################
+################################################################################
 # =>This is a Chi-square statistic simulated as a .R function,
 #     and uses the rnorm() function to make a sample from
 #     population data.
+# =>Returns: 'w' or shi-square
+#
 # =>Variables:
 #       - data1.mat ; Data matrix used to hold rnorm() sample data
 #       - ssq1      ; "S" squared which is the sample variance
@@ -22,52 +23,119 @@
 #                     graphs for analysis
 #
 mychisim<-function(n1=10,sigma1=3,mean1=5,iter=1000,ymax=0.1,...){
-  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
-
-  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1
-
-  ssq1=apply(data1.mat,2,var) # ssq1 is s squared
-
-  w=(n1-1)*ssq1/sigma1^2      #chi-sq stat
-
-  hist(w,freq=FALSE, ylim=c(0,ymax), # Histogram with annotation
+  # Generate the "iter" amount of samples using rnorm
+  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)
+  # Define dimension of data matrix by user input
+  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE)
+  # Define ssq1
+  ssq1=apply(data1.mat,2,var)
+  # chi-sqaure Statistic
+  #  denoted as 'w'
+  w=(n1-1)*ssq1/sigma1^2
+  # Histogram
+  #   - User Input Adaptive labels
+  hist(w,freq=FALSE, ylim=c(0,ymax),
        main=substitute(paste("Sample size = ",n[1]," = ",n1," statistic = ",chi^2)),
        xlab=expression(paste(chi^2, "Statistic",sep=" ")), las=1)
-  lines(density(w),col="Blue",lwd=3) # add a density plot
-  curve(dchisq(x,n1-1),add=TRUE,col="Red",lty=2,lwd=3) # add a theoretical curve
-  title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2)) #mathematical annotation -see ?plotmath
-  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title) # Legend #
-  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq")) # some output to use if needed
+  # Creates density plot lines on-top of histogram
+  lines(density(w),col="Blue",lwd=3)
+   # Creates theoretical curve on-top of histogram
+  curve(dchisq(x,n1-1),add=TRUE,col="Red",lty=2,lwd=3)
+  # Adaptive Title:
+  # mathematical annotation -see ?plotmath
+  title=expression(chi^2==frac((n[1]-1)*s^2,sigma^2))
+  # Legend placed using locater/coordinates if in .rmd
+  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
+  ### Function Return ###
+  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq"))
 }
-windows()
-chisq=mychisim(iter=10000,ymax=0.15)
+# Function examples:                 ###########################################
+windows()                            #
+chisq=mychisim(iter=10000,ymax=0.15) #
+######################################
 
 
 
-
-
-#### Two pop sampling
-mychisim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=0.07,...){    # adjust ymax to make graph fit
-  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
+################
+## mychisim2() ##
+################################################################################
+# =>This is a Chi-square statistic simulated as a .R function,
+#     and uses the rnorm() function to make samples from 2
+#     sets of population data.
+# =>Returns: 'w' or shi-square
+#
+# =>Variables: (1 or 2 denotes the population; ie data2.mat)
+#       - data1.mat ; Data matrix used to hold rnorm() sample data
+#       - ssq1      ; "S" squared which is the sample variance
+# =>User Inputs:
+#       - n1     ; sample size desired
+#       - sigma1 ; Standard Deviaton of the population
+#                     (sigma1^2 is the pop variance)
+#       - mean1  ; Mean of the population
+#       - iter   ; Iterations of the function to be carried out, or
+#                   "iter" amount of samples of size "n1"
+#       - ymax   ; User defined to fit the y-axis of the output
+#                     graphs for analysis
+#
+mychisim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=0.07,...){
+  # Generate the 1st set of "iter" amount of samples using rnorm
+  y1=rnorm(n1*iter,mean=mean1,sd=sigma1)
+  # Generate the 2nd set of "iter" amount of samples using rnorm
   y2=rnorm(n2*iter,mean=mean2,sd=sigma2)
-  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE) # Each column is a sample size n1
+  # Define dimension of data matrix by user input
+  data1.mat=matrix(y1,nrow=n1,ncol=iter,byrow=TRUE)
   data2.mat=matrix(y2,nrow=n2,ncol=iter,byrow=TRUE)
-  ssq1=apply(data1.mat,2,var) # ssq1 is s squared
+  # Define ssq1
+  ssq1=apply(data1.mat,2,var)
   ssq2=apply(data2.mat,2,var)
-  spsq=((n1-1)*ssq1 + (n2-1)*ssq2)/(n1+n2-2) # pooled s squared
-  w=(n1+n2-2)*spsq/(sigma1^2)#sigma1=sigma2,  Chi square stat
-  hist(w,freq=FALSE, ylim=c(0,ymax), # Histogram with annotation
+  # pooled s squared 'ssq1' & 'ssq2'
+  spsq=((n1-1)*ssq1 + (n2-1)*ssq2)/(n1+n2-2)
+  # chi-sqaure Statistic
+  #  denoted as 'w'
+  #  -sigma1=sigma2
+  w=(n1+n2-2)*spsq/(sigma1^2)
+  # Histogram
+  #   - User Input Adaptive labels
+  hist(w,freq=FALSE, ylim=c(0,ymax),
        main=substitute(paste("Sample size = ",n[1]+n[2]," = ",n1+n2," statistic = ",chi^2)),
        xlab=expression(paste(chi^2, "Statistic",sep=" ")), las=1)
-  lines(density(w),col="Blue",lwd=3) # add a density plot
-  curve(dchisq(x,n1+n2-2),add=TRUE,col="Red",lty=2,lwd=3) # add a theoretical curve
-  title=expression(chi^2==frac((n[1]+n[2]-2)*S[p]^2,sigma^2)) #mathematical annotation -see ?plotmath
-  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title) # Legend #
-  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq")) # some output to use if needed
+  # Creates density plot lines on-top of histogram
+  lines(density(w),col="Blue",lwd=3)
+  # Creates theoretical curve on-top of histogram
+  curve(dchisq(x,n1+n2-2),add=TRUE,col="Red",lty=2,lwd=3)
+  # Adaptive Title:
+  # mathematical annotation -see ?plotmath
+  title=expression(chi^2==frac((n[1]+n[2]-2)*S[p]^2,sigma^2))
+  # Legend placed using locater/coordinates if in .rmd
+  legend(locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
+  ### Function Return ###
+  return(list(w=w,summary=summary(w),sd=sd(w),fun="Chi-sq"))
 }
-windows()
-mychisim2(iter=10000)
+# Function examples:  ##########################################################
+windows()             #
+mychisim2(iter=10000) #
+#######################
 
+################
+## myTsim2()  ##
+################################################################################
+# =>
+
+
+# =>Returns: 'w' or shi-square
+#
+# =>Variables: (1 or 2 denotes the population; ie data2.mat)
+#       - data.mat  ; Data matrix used to hold rnorm() sample data
+#       - ssq       ; "S" squared which is the sample variance
+# =>User Inputs:
+#       - n      ; sample size desired
+#       - sigma  ; Standard Deviaton of the population
+#                     (sigma1^2 is the pop variance)
+#       - mean   ; Mean of the population
+#       - iter   ; Iterations of the function to be carried out, or
+#                   "iter" amount of samples of size "n1"
+#       - ymax   ; User defined to fit the y-axis of the output
+#
 myTsim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=0.5,...){
   y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
   y2=rnorm(n2*iter,mean=mean2,sd=sigma2)
@@ -88,9 +156,32 @@ myTsim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=
   legend(2,0.2,c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)# Legend #
   return(list(w=w,summary=summary(w),sdw=sd(w),fun="T")) # some output to use if needed
 }
-myTsim2(iter=10000)
+# Function examples:  ##########################################################
+windows()             #
+myTsim2(iter=10000)   #
+#######################
 
 
+################
+## myFsim2()  ##
+################################################################################
+# =>
+
+
+# =>Returns: 'w' or shi-square
+#
+# =>Variables: (1 or 2 denotes the population; ie data2.mat)
+#       - data.mat  ; Data matrix used to hold rnorm() sample data
+#       - ssq       ; "S" squared which is the sample variance
+# =>User Inputs:
+#       - n      ; sample size desired
+#       - sigma  ; Standard Deviaton of the population
+#                     (sigma1^2 is the pop variance)
+#       - mean   ; Mean of the population
+#       - iter   ; Iterations of the function to be carried out, or
+#                   "iter" amount of samples of size "n1"
+#       - ymax   ; User defined to fit the y-axis of the output
+#
 myFsim2<-function(n1=10,n2=14,sigma1=3,sigma2=2,mean1=5,mean2=10,iter=1000,ymax=0.9,...){
   y1=rnorm(n1*iter,mean=mean1,sd=sigma1)# generate iter samples of size n1
   y2=rnorm(n2*iter,mean=mean2,sd=sigma2)
