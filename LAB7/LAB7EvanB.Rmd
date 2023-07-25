@@ -34,7 +34,7 @@ class note:
 getwd()
 ```
 
-# Task 2{.tabset}
+# Task 2
 
 ## mycchisim()
 ```{r}
@@ -103,7 +103,7 @@ chisq=mychisim(n1 = 10, iter=1500,mean1 = 20,sigma1 = 10,ymax=0.15)
 
 # Task 3
 
-## Part A {.tabset}
+## Part A 
 
 ### myTsim()
 ```{r}
@@ -161,7 +161,7 @@ hist(T$w, freq=FALSE)
 ```
 
 
-# Task 4{.tabset}
+# Task 4
 
 
 ## mychisim2()
@@ -234,7 +234,7 @@ hist(chisim2$w, freq=FALSE,xlab=expression(paste(chi^2, "Statistic",sep=" ")))
 ```
 
 
-# Task 5{.tabset}
+# Task 5
 
 
 ## T Statistic
@@ -324,7 +324,7 @@ hist(T2$w,freq=FALSE, xlab = "T Statistic")
 ```
 
 
-# Task 6{.tabset}
+# Task 6
 
 ## F Statistic 
 The function myFsim2() calculates the F statistic which is given as follows:
@@ -406,7 +406,7 @@ hist(F2$w)
 
 
 
-# Task 7{.tabset}
+# Task 7
 
 ```{r}
 fire=read.csv("FIREDAM.csv")
