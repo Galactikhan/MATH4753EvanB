@@ -16,5 +16,5 @@ the mode of a data set
 Finding the Mode of a Data set
 }
 \examples{
-find_mode(c(1,2,3,3,4,5))
+find.mode(c(1,2,3,3,4,5))
 }

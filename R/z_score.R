@@ -14,11 +14,11 @@ z.score <- function(x) {
   z[abs(z)>3]
 
   # Find the I values corresponding to these z values
-  voltage[abs(z)>3]
+  x[abs(z)>3]
 
   # Find the values of z that are possible outliers
   z[abs(z)>=2 & abs(z)<=3]
 
   #Find the values of I which are possible outliers
-  voltage[abs(z)>=2 & abs(z)<=3]
+  x[abs(z)>=2 & abs(z)<=3]
 }

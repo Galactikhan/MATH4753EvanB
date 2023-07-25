@@ -164,7 +164,7 @@ myTsim2<-function(n1=10,n2=14,sigma1=3,sigma2=3,mean1=5,mean2=10,iter=1000,ymax=
   # mathematical annotation -see ?plotmath
   title=expression(T==frac((bar(Y)[1]-bar(Y)[2])-(mu[1]-mu[2]),S[p]*sqrt(frac(1,n[1])+frac(1,n[2]))))
   # Legend placed using locater/coordinates if in .rmd
-  legend(2,0.2,c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
+  legend(Locator(1),c("Simulated","Theoretical"),col=c("Blue","Red"),lwd=4,lty=1:2,bty="n",title=title)
   ### Function Return ###
   return(list(w=w,summary=summary(w),sdw=sd(w),fun="T"))
 }
