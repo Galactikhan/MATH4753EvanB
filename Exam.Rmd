@@ -86,6 +86,8 @@ z[abs(z)>=2 & abs(z)<=3]
 mpg[abs(z)>=2 & abs(z)<=3]
 
 boxplot(mpg,main="Miles Per Gallon: Task 4 Outlier identification",ylab="mpg",col="Blue",notch=TRUE)
+
+z.score(mpg)
 ```
 
 
