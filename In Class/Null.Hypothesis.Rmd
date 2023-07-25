@@ -1,0 +1,27 @@
+```{r}
+# NV = 1/2
+
+prob <- dbinom(0:10,10,1/2)
+names(prob) <- 0:10
+barplot(prob)
+```
+```{r}
+library(Intro2R)
+ddt
+L<-ddt$LENGTH
+summary(L)
+t.test(L,mu=40)
+# if t in interval then accept null, if not then reject
+t <- qt(1-0.05/2,143)
+t
+```
+
+# P value and T calc
+
+```{r}
+t.test(L,mu=42)
+```
+```{r}
+t.test(L,mu=45)
+```
+

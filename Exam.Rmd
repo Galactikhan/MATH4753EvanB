@@ -89,6 +89,9 @@ boxplot(mpg,main="Miles Per Gallon: Task 4 Outlier identification",ylab="mpg",co
 
 z.score(mpg)
 ```
+```{r}
+z.score(mpg)
+```
 
 
 ```{r}

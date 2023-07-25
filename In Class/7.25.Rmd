@@ -1,8 +1,0 @@
-```{r}
-# NV = 1/2
-
-prob <- dbinom(0:10,10,1/2)
-names(prob) <- 0:10
-barplot(prob)
-```
-

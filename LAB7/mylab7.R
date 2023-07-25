@@ -114,9 +114,9 @@ csq1= mychisim2(iter=10000) #
 ################
 ## myTsim2()  ##
 ################################################################################
-# =>
-
-
+# =>This is a T statistic simulated as a .R function.
+#     Uses the rnorm() function to make samples from 2
+#     sets of population data.
 # =>Returns: 'w' or shi-square
 #
 # =>Variables: (1 or 2 denotes the population; ie data2.mat)
@@ -177,9 +177,9 @@ myTsim2(iter=10000)   #
 ################
 ## myFsim2()  ##
 ################################################################################
-# =>
-
-
+# =>This is a F statistic simulated as a .R function.
+#     Uses the rnorm() function to make samples from 2
+#     sets of population data.
 # =>Returns: 'w' or shi-square
 #
 # =>Variables: (1 or 2 denotes the population; ie data2.mat)
