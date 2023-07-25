@@ -2,7 +2,7 @@
 #'
 #' @param x a quantitative vector
 #'
-#' @return Z-score for a data setx, the squared values
+#' @return Z-score for a data set, the squared values
 #' @export
 #'
 #' @examples
