@@ -10,7 +10,7 @@ z.score(x)
 \item{x}{a quantitative vector}
 }
 \value{
-Z-score for a data setx, the squared values
+Z-score for a data set, the squared values
 }
 \description{
 Z-score

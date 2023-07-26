@@ -19,6 +19,7 @@ z.score <- function(x) {
   #Find the values of I which are possible outliers
   poss.outlier <- x[abs(z)>=2 & abs(z)<=3]
   ## Output##
-  Results <- data.entry(z,outlier.z.3,outlier.3,poss.outlier.z,poss.outlier)
+  Results <- list(z,outlier.z.3,outlier.3,poss.outlier.z,poss.outlier)
+  names(Results) <- c("Z", "Z-Outlier", "True Outliers", "Z-Possible", "Possible Outliers")
   return(Results)
 }

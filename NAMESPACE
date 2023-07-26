@@ -3,4 +3,5 @@
 export(find.mode)
 export(myncurve)
 export(neg.bi.nom)
+export(ntickets)
 export(z.score)

@@ -7,7 +7,7 @@
 find.mode(x)
 }
 \arguments{
-\item{x}{}
+\item{x}{input}
 }
 \value{
 the mode of a data set

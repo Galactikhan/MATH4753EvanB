@@ -7,7 +7,11 @@
 myncurve(mu, sigma, a)
 }
 \arguments{
-\item{a}{}
+\item{mu}{mean}
+
+\item{sigma}{S.D.}
+
+\item{a}{user input}
 }
 \value{
 A graph representing probabiltiy through area

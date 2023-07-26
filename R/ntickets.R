@@ -1,31 +1,13 @@
----
-title: 'Project'
-author: "Evan Blosser"
-date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
-output: 
-  html_document:
-    df_print: paged
-    fig_caption: true
-    highlights: pygments
-    number_sections: no
-    theme: spacelab
-    toc: yes
-    toc_float: yes
----
-
-```{r setup, include=FALSE, fig.align='center'}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-
-
-
-
-
-# N Tickets 
-
-
-```{r}
+#' Title
+#'
+#' @param N     Number of tickets
+#' @param gamma Gamma
+#' @param p     Probability
+#'
+#' @return
+#' @export
+#'
+#' @examples
 ntickets <- function(N, gamma, p) {
   # Define the objective function for the discrete case
   objective_function_discrete <- function(n) {
@@ -57,20 +39,14 @@ ntickets <- function(N, gamma, p) {
   plot(0:N, objective_values_discrete, type = "b", col = "blue",
        xlab = "n (Number of Tickets to be Sold)", ylab = "Objective",
        main = "Objective Function vs n")
- 
+
 
 
 
   # Plot objective function for the continuous case
-  plot(0:N, objective_values_continuous,xlab = "n (Number of Tickets to be Sold)", ylab="Objective", type = "l", col = "purple")
+  plot(0:N, objective_values_continuous,xlab = "n (Number of Tickets to be Sold)",ylab="Objective", type = "l", col = "purple")
 
 
 
   return(list(nd = nd, nc = nc, N = N, p = p, gamma = gamma))
 }
-```
-# Calling ntickets
-```{r}
-MATH4753EvanB::ntickets(N=400,gamma = 0.02, p = 0.95)
-```
-

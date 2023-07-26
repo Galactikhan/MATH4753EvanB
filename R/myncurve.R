@@ -1,8 +1,8 @@
 #' Normal Curve Probability Distribution
 #'
-#' @param mu
-#' @param sigma
-#' @param a
+#' @param mu     mean
+#' @param sigma S.D.
+#' @param a     user input
 #'
 #' @return A graph representing probabiltiy through area
 #' @export

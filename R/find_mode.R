@@ -1,6 +1,6 @@
 #' Finding the Mode of a Data set
 #'
-#' @param x
+#' @param x input
 #'
 #' @return the mode of a data set
 #' @export
