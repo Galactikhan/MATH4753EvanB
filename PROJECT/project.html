@@ -2797,17 +2797,20 @@ border-radius: 0px;
 
   # Find the number of tickets using the discrete distribution
   nd_opt &lt;- stats::optimize(function(n) abs(objective_function_discrete(n)), interval = c(0, N))$minimum
-  nd &lt;- round(nd_opt)
+  # Round The output
+  nd &lt;- round(nd_opt,2)
 
   # Find the number of tickets using the normal approximation
   nc_opt &lt;- stats::optimize(function(n) abs(objective_function_continuous(n)), interval = c(0, N))$minimum
-  nc &lt;- round(nc_opt)
+  # Round The output
+  nc &lt;- round(nc_opt,2)
 
   # Create the objective function for the discrete case
   objective_values_discrete &lt;- sapply(0:N, objective_function_discrete)
 
   # Create the objective function for the continuous case
   objective_values_continuous &lt;- sapply(0:N, objective_function_continuous)
+  # Plot Layout 
   graphics::layout(matrix(1:2))
   # Plot objective function for the discrete case
   plot(0:N, objective_values_discrete, type = &quot;b&quot;, col = &quot;blue&quot;,
@@ -2843,6 +2846,11 @@ border-radius: 0px;
 ## 
 ## $gamma
 ## [1] 0.02</code></pre>
+</div>
+<div id="package-build-check" class="section level1">
+<h1>Package Build Check:</h1>
+<p>0 errors ✔ | 0 warnings ✔ | 2 notes ✖</p>
+<p>R CMD check succeeded</p>
 </div>
 
 

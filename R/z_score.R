@@ -9,7 +9,7 @@
 #' z.score(x=c(1,2,3,1,2,3,1,2,3,6,6,8,9))
 z.score <- function(x) {
   ## Z Score Function ##
-  z <- (x-mean(x))/sd(x)
+  z <- (x-mean(x))/stats::sd(x)
   # Find the z values greater than 3 in size
   outlier.z.3 <- z[abs(z)>3]
   # Find the I values corresponding to these z values

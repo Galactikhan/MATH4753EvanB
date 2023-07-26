@@ -23,11 +23,13 @@ ntickets <- function(N, gamma, p) {
 
   # Find the number of tickets using the discrete distribution
   nd_opt <- stats::optimize(function(n) abs(objective_function_discrete(n)), interval = c(0, N))$minimum
-  nd <- round(nd_opt)
+  # Round The output
+  nd <- round(nd_opt,2)
 
   # Find the number of tickets using the normal approximation
   nc_opt <- stats::optimize(function(n) abs(objective_function_continuous(n)), interval = c(0, N))$minimum
-  nc <- round(nc_opt)
+  # Round The output
+  nc <- round(nc_opt,2)
 
   # Create the objective function for the discrete case
   objective_values_discrete <- sapply(0:N, objective_function_discrete)
