@@ -1,0 +1,148 @@
+---
+title: 'Lab 3'
+author: "Evan Blosser"
+date: '`r format(Sys.Date(),format="%A, %B %d, %Y")`'
+output: 
+  html_document:
+    df_print: paged
+    fig_caption: true
+    highlights: pygments
+    number_sections: no
+    theme: spacelab
+    toc: yes
+    toc_float: yes
+---
+
+```{r setup, include=FALSE, fig.align='center'}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+# Task 1
+
+WD
+
+```{r}
+getwd()
+```
+
+# Task 2
+
+
+# Task 3 
+
+```{r}
+spruce.df = read.csv("SPRUCE.csv")
+head(spruce.df)
+```
+
+```{r}
+plot(Height~BHDiameter, main = "Tree Height vs BHDiameter",
+     xlab = "Breast Height Diameter (cm)", ylab = "Height of Tree (m)",
+     pch = 21, bg = "blue", cex = 1.2,
+     xlim = c(0, max(BHDiameter) * 1.1), ylim = c(0, max(Height) * 1.1),
+     data = spruce.df)
+spruce.lm = with(spruce.df, lm(Height~BHDiameter))
+abline(spruce.lm)
+
+tstwo = s20x::trendscatter(Height~BHDiameter, f = 0.5, data = spruce.df)
+```
+
+
+# Task4 
+```{r}
+layout(matrix(1:4, nr=2,nc=2))
+layout.show(4)
+```
+
+
+```{r}
+mycex = 1.0
+
+# Scatter plot and fitted line
+with(spruce.df, 
+     plot(Height~BHDiameter, main = "Tree Height vs BHDiameter",
+          xlab = "Breast Height Diameter (cm)", ylab = "Height of Tree (m)",
+          bg = "Blue", pch=21, cex = mycex, 
+          ylim = c(0, 1.1 * max(Height)), xlim = c(0, 1.1 * max(BHDiameter)))
+)
+abline(spruce.lm)
+
+# Residual line segments
+# make yhat the estimates of E[Height | BHDiameter]
+yhat = with(spruce.df, predict(spruce.lm, data.frame(BHDiameter)))
+# OR you could use -- (yhat values the predicted values for all the BHDiameter values )
+yhat = fitted(spruce.lm)
+
+with(spruce.df, 
+     plot(Height~BHDiameter, main = "RSS",
+          xlab = "Breast Height Diameter (cm)", ylab = "Height of Tree (m)",
+          bg = "Blue", pch=21, cex = mycex, 
+          ylim = c(0, 1.1 * max(Height)), xlim = c(0, 1.1 * max(BHDiameter)))
+)
+
+# Draw in segments making the residuals (regression deviations)
+with(spruce.df, {
+  segments(BHDiameter, Height, BHDiameter, yhat)
+})
+abline(spruce.lm)
+
+# Mean and model line segments
+with(spruce.df, 
+     plot(Height~BHDiameter, main = "MSS",
+          xlab = "Breast Height Diameter (cm)", ylab = "Height of Tree (m)",
+          bg = "Blue", pch=21, cex = mycex, 
+          ylim = c(0, 1.1 * max(Height)), xlim = c(0, 1.1 * max(BHDiameter)))
+)
+with(spruce.df, abline(h = mean(Height)))
+
+with(spruce.df, segments(BHDiameter, mean(Height), BHDiameter, yhat, col = "Red"))
+abline(spruce.lm)
+
+# Mean and total deviation line segments
+with(spruce.df, 
+     plot(Height~BHDiameter, main = "TSS - Plot by Possible Student",
+          xlab = "Breast Height Diameter (cm)", ylab = "Height of Tree (m)",
+          bg = "Blue", pch=21, cex = mycex, 
+          ylim = c(0, 1.1 * max(Height)), xlim = c(0, 1.1 * max(BHDiameter)))
+)
+with(spruce.df, abline(h = mean(Height)))
+with(spruce.df, segments(BHDiameter, Height, BHDiameter, mean(Height), col = "Green"))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Me
+
+```{r}
+obj = lm(Height~BHDiameter, data = spruce.df)
+summary(obj)
+plot(Height~BHDiameter, data = spruce.df)
+abline(obj)
+library(s20x)
+trendscatter(Height~BHDiameter,f=0.7, data=spruce.df)
+```
+
+
+
+#Task 7
+This is how you place images in RMD documents
+
+<center>
+!["name of image"](gheat.png){ width=70% }
+</center>
