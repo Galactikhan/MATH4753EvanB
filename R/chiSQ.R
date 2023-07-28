@@ -1,3 +1,12 @@
+#' chi-square simualtion
+#'
+#' @param iter Number of iterations
+#' @param n    Number of sample size
+#'
+#' @return
+#' @export
+#'
+#' @examples
 mychisim <- function(iter = 1000, n = 10){
   x<-NULL
   mat <- matrix(data=NA, nrow = n, ncol = iter, byrow=TRUE)

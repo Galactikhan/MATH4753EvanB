@@ -1,4 +1,4 @@
-#' Title
+#' Pareto Barplot
 #'
 #' @param x   Input
 #' @param mn   Main Title

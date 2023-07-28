@@ -4,10 +4,10 @@
 \alias{myboot2}
 \title{Bootstrap}
 \usage{
-myboot2(iter = 10000, x, fun = "mean", alpha = 0.05, cx = 1.5, ...)
+myboot2(iter = 10000, n = 100, x, fun = "mean", alpha = 0.05, cx = 1.5, ...)
 }
 \arguments{
-\item{iter}{Itertions}
+\item{iter}{Iterations}
 
 \item{x}{data input}
 
@@ -17,7 +17,7 @@ myboot2(iter = 10000, x, fun = "mean", alpha = 0.05, cx = 1.5, ...)
 
 \item{cx}{Cx}
 
-\item{...}{additional sttings for graph}
+\item{...}{additional settings for graph}
 }
 \description{
 Bootstrap

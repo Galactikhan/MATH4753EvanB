@@ -2,7 +2,7 @@
 % Please edit documentation in R/pareto.r
 \name{pareto}
 \alias{pareto}
-\title{Title}
+\title{Pareto Barplot}
 \usage{
 pareto(x, mn = "Pareto barplot", ...)
 }
@@ -14,5 +14,5 @@ pareto(x, mn = "Pareto barplot", ...)
 \item{...}{Graph parameters}
 }
 \description{
-Title
+Pareto Barplot
 }
