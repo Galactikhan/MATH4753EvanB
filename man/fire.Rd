@@ -3,19 +3,18 @@
 \docType{data}
 \name{fire}
 \alias{fire}
-\title{Fire}
+\title{Fire Data set}
 \format{
-a data frame with 15 rows 2 variables
- \describe{
+A data frame
+\describe{
    \item{DISTANCE}{}
    \item{DAMAGE}{}
-   '''
- }
+}
 }
 \usage{
 fire
 }
 \description{
-A data set being used for MATH 4753
+Set of data for MATH4753
 }
 \keyword{datasets}

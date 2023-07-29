@@ -1,11 +1,10 @@
-#' Fire
+#' Fire Data set
 #'
-#' A data set being used for MATH 4753
-#' @format a data frame with 15 rows 2 variables
-#'  \describe{
+#'  Set of data for MATH4753
+#' @format A data frame
+#' \describe{
 #'    \item{DISTANCE}{}
 #'    \item{DAMAGE}{}
-#'    '''
-#'  }
+#' }
 #'
 "fire"
