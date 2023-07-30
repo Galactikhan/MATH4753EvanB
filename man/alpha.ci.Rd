@@ -15,5 +15,8 @@ alpha.ci(per, sample)
 A confidence interval for the given data
 }
 \description{
-Confidence Interval Estimator
+This is a function that takes a desired percentage of
+confidence, ie a 94\% confidence interval, and a vector of sample data as inputs.
+Then the confidence interval is calculated using theory from Statistics for
+Engineering and the Sciences 6th edition.
 }

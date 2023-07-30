@@ -1,4 +1,4 @@
-#' Load a File
+#' Load a .csv File
 #'
 #' @param obj.name object name desired
 #'
@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-file.load=function(obj.name){
+file.csv=function(obj.name){
   obj.name<-utils::read.csv(file.choose())
   return(obj.name)
 }

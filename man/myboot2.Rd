@@ -2,26 +2,34 @@
 % Please edit documentation in R/myboot2.R
 \name{myboot2}
 \alias{myboot2}
-\title{Bootstrap}
+\title{Bootstrap 2.0}
 \usage{
 myboot2(iter = 10000, x, fun = "mean", alpha = 0.05, cx = 1.5, ...)
 }
 \arguments{
-\item{iter}{Iterations}
+\item{iter}{Iterations desired}
 
-\item{x}{Data vector}
+\item{x}{Vector of sample data}
 
-\item{fun}{Function desired}
+\item{fun}{Function to be applied}
 
-\item{alpha}{Confidence interval: (1-alpha)*100 = percent. 95\%-> alpha=0.05}
+\item{alpha}{Alpha value: (1-alpha)*100 is the confidence interval
+percentage}
 
-\item{cx}{text size}
+\item{cx}{Confidence Interval text on graph}
 
-\item{...}{other parameters}
+\item{...}{Other parameters}
 }
 \value{
-A histogram and list of calculated values like confidence interval
+A graph and a list of significant values.
 }
 \description{
-This is a confidence interval placed on a histogram representing the function used.
+This is a bootstrap function designed to find the confidence interval of a
+given set of sample data. This graphs the output and places the confidence
+interval on the graph. It also prints a list of significant values to the user
+pertaining to the given data; such as the confidence interval "ci", the
+function applied "fun", etc...
+}
+\examples{
+myboot2<-function(iter=10000,x=c(1,2,2,3,3,3,4),fun="mean",alpha=0.05,cx=1.5)
 }
