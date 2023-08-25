@@ -17,7 +17,7 @@ mycltp=function(n,iter,lambda=10,...){
   y=stats::rpois(n*iter,lambda=lambda)
   ## Place these numbers into a matrix
   ## The columns will correspond to the iteration and the rows will equal the sample size n
-  data=matrix(y,nr=n,nc=iter,byrow=TRUE)
+  data=matrix(y,nrow=n,ncol=iter,byrow=TRUE)
   ## apply the function mean to the columns (2) of the matrix
   ## these are placed in a vector w
   w=apply(data,2,mean)
@@ -30,7 +30,7 @@ mycltp=function(n,iter,lambda=10,...){
   ## To be on the safe side we will add 10% more to this
   ymax=1.1*ymax
   ## Make a suitable layout for graphing
-  graphics::layout(matrix(c(1,1,2,3),nr=2,nc=2, byrow=TRUE))
+  graphics::layout(matrix(c(1,1,2,3),nrow=2,ncol=2, byrow=TRUE))
   ## Now we can make the histogram
   graphics::hist(w,freq=FALSE,  ylim=c(0,ymax), col=grDevices::rainbow(max(w)),
        main=paste("Histogram of sample mean","\n", "sample size= ",n," iter=",iter," lambda=",lambda,sep=""),
