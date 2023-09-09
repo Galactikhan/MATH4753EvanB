@@ -3,10 +3,10 @@
 #' @param data.object   A data frame/csv
 #' @param n             Number of desired rows
 #' @description
-#' Selects a specific numebr of random rows from a list of data.
+#' Selects a specific number of random rows from a list of data.
 #'
 #'
-#' @return          An object data.select, with the randomly slected data.
+#' @return          An object data.select, with the randomly selected data.
 #' @export
 #'
 #' @examples

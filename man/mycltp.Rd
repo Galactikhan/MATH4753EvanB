@@ -15,6 +15,12 @@ mycltp(n, iter, lambda = 10, ...)
 
 \item{...}{Other settings}
 }
+\value{
+A plot
+}
 \description{
 Central limit function using Poisson's regression.
+}
+\examples{
+mycltp(20,1000,10)
 }

@@ -1,4 +1,4 @@
-#' myNRML
+#' Newton-Raphson Method
 #'
 #' @param x0        X-not first approximation value
 #' @param delta     increment, try 0.001
@@ -8,7 +8,7 @@
 #' @description
 #'    This is a
 #'
-#' @return
+#' @return         A list of X & Y values, and plots a graph
 #' @export
 #'
 #' @examples
@@ -30,7 +30,7 @@ myNRML=function(x0,delta=0.001,llik,xrange,parameter="param"){
     y[i+1]=f(x[i+1])
     d=abs(y[i+1])
   }
-  graphics::layout(matrix(1:2,nr=1,nc=2,byrow=TRUE),width=c(1,2))
+  graphics::layout(matrix(1:2,nrow=1,ncol=2,byrow=TRUE),width=c(1,2))
   graphics::curve(llik(x), xlim=xrange,xlab=parameter,ylab="log Lik",main="Log Lik")
   graphics::curve(f(x),xlim=xrange,xaxt="n", xlab=parameter,ylab="derivative",main=  "Newton-Raphson Algorithm \n on the derivative")
   graphics::points(x,y,col="Red",pch=19,cex=1.5)

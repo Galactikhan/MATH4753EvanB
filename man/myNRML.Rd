@@ -2,7 +2,7 @@
 % Please edit documentation in R/myNRML.R
 \name{myNRML}
 \alias{myNRML}
-\title{myNRML}
+\title{Newton-Raphson Method}
 \usage{
 myNRML(x0, delta = 0.001, llik, xrange, parameter = "param")
 }
@@ -16,6 +16,9 @@ myNRML(x0, delta = 0.001, llik, xrange, parameter = "param")
 \item{xrange}{:}
 
 \item{parameter}{:}
+}
+\value{
+A list of X & Y values, and plots a graph
 }
 \description{
 This is a
