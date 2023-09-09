@@ -1,6 +1,6 @@
 #' @title Z-score
 #'
-#' @param x a quantitative vector
+#' @param x  a quantitative vector
 #'
 #' @return Z-score for a data set, the squared values
 #' @export

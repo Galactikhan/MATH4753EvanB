@@ -12,8 +12,15 @@ rand.data.select(data.object, n)
 \item{n}{Number of desired rows}
 }
 \value{
+<<<<<<< HEAD
 An object data.select, with the randomly selected data.
 }
 \description{
 Selects a specific number of random rows from a list of data.
+=======
+An object data.select, with the randomly slected data.
+}
+\description{
+Selects a specific numebr of random rows from a list of data.
+>>>>>>> e87b82bcf5da1d3055578f791e96cf47d42ebf92
 }
